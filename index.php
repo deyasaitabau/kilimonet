@@ -28,6 +28,10 @@ $query_illibilis2 = mysqli_query($conn,"SELECT * FROM questionnaire where  marke
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/tablecss.css">
+<link rel="stylesheet" href="./css/main.css">
+<script  type="text/javascript" src="./js/table.js"></script>
+<script type="text/javascript" src="./js/tab.js"></script>
 <script src="./js/script.js" defer></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
@@ -149,33 +153,19 @@ $query_illibilis2 = mysqli_query($conn,"SELECT * FROM questionnaire where  marke
               <div>
              <h2> Welcome To Kilimonet <hr></h2>
             
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, perspiciatis. 
-                Veritatis repellendus rem vero Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Facilis officia suscipit voluptate, nihil neque rerum quos incidunt dicta, 
-                mollitia pariatur non asperiores totam ex esse veritatis? Placeat harum mollitia 
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis quisquam, maxime natus rem incidunt
-                 in distinctio.
-                 Numquam dolor iste molestiae ullam possimus, est quasi impedit? Quae odio recusandae cum suscipit.
-                  architecto.
-                 cum soluta nam labore recusandae, mollitia ut neque id quidem. Iusto rerum molestias nobis 
-                 beatae dolor.</p>
+              <p>?Kilimonet is a program I am working on to provide a tangible solution to many challenges faced by livestock keepers and livestock dealers in Kenya today, 
+                particularly in Kajiado County, potent to them by climate change. Today, livestock keepers and dealers face the 
+                challenge of unreliable rainfall, leading to drought. Consequently, farmers have had to sell their livestock at low prices. This is not because their animals’ health and fitness are very poor but because no local livestock dealer is willing to buy because there are no feeds to feed livestock in the future. Kilimonet wants to solve the challenge in the following way:Availing the most responsive livestock prices from all accredited livestock markets in Kajiado County to all livestock dealers in Kenya. By doing this, large numbers of livestock dealers from regions with sufficient animal feeds will be attracted to trade in such markets due to low prices. 
+                This spiral effect leads to an increase in demand, which leads to a rise in prices.</p>
                  </div>
           <div class="textimage">
             <div class="founderimage">
-            <img src="./images/Founder.webp" alt="" class="founder" style="width: 250px;
+            <img src="./images/laban.jpg" alt="" class="founder" style="width: 250px;
   height: 100%;">
             </div>
                  <div class="toptext">
                    <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati dolor unde, 
-                    nemo ducimus aut facere debitis numquam, 
-                    ipsum perspiciatis, eveniet Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit ducimus 
-                    voluptatibus ipsa necessitatibus at aliquam minima inventore tenetur, vero, porro cumque explicabo. 
-                    Ad asperiores quisquam, magnam consequuntur eaque tenetur ipsa.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ab quisquam asperiores nostrum 
-                    reiciendis cumque quis iste 
-                    corrupti voluptatibus commodi in consequatur vitae animi eius, ullam rerum aperiam dolores aut.
-                    accusantium non eum consectetur modi dicta incidunt quis atque laborum!
+                Laban deya is the founder of Kilimonet. he is passionate agripreneur. he is a resident of Kajiado county 
                   </p>
                     </div>
               </div>
@@ -199,100 +189,94 @@ $query_illibilis2 = mysqli_query($conn,"SELECT * FROM questionnaire where  marke
             <img src="./images/cows.jpg" alt="" class="founder1" style="width: 250px; height: 100%;">
             </div>
               </div>
-
-                 <table class="market-price">
-
-                    <thead>
-                        <tr>
-                            <td colspan="4"><H1>CATTLE</H1></td>
+            <div>
+              <div id="tableID_wrapper" class="dataTables_wrapper no-footer">
+                
+                    <div class="dataTables_length" id="tableID_length">        
+                 </div>                    
+                    <H1 style="text-align:center">CATTLE</H1>              
+                    <table id="tableID" class="display dataTable no-footer" style="grid-auto-columns: auto;" role="grid" aria-describedby="tableID_info">
+                
+                      <thead>
+                        <tr role="row">
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Profile  : activate to sort column descending" style="width: 40.7188px; ">Live Weight</th>
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Id No : activate to sort column ascending" style="width: 48.8906px;">Price (ksh)</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>live weight</td>
-                            <td>price(ksh)</td>                    
-                        </tr>
-                    <?php
-                      if(mysqli_num_rows($query_illibilis1) > 0){
-                      ?>
+                      </thead>
+                      <tbody>                                      
                       <?php
-                        while($data = mysqli_fetch_assoc($query_illibilis1)){    
-                      ?>
+                        if(mysqli_num_rows($query_illibilis1) > 0){
+                        ?>
+                        <?php
+                          while($data = mysqli_fetch_assoc($query_illibilis1)){    
+                        ?>
+                          <tr class="row">
                         
-                        <tr>
-                       
-                            <td> <?php  echo($data['weight']); ?> </td>
-                            <td><?php  echo($data['price']); ?></td>
+                              <td> <?php  echo($data['weight']); ?> </td>
+                              <td><?php  echo($data['price']); ?></td>
+                          </tr>
+                          <?php
+                          }
+
+                        }
+                        else  if(mysqli_num_rows($query_illibilis1) <= 0){
+                          ?>
+                          <tr>                       
+                          <td> 'empty set'</td>
+                          <td>'empty set'</td>
                         </tr>
                         <?php
+
                         }
-
-                      }
-                      else  if(mysqli_num_rows($query_illibilis1) <= 0){
                         ?>
-                        <tr>
-                            <td>live weight</td>
-                            <td>price(ksh)</td>
-                           
+                      </tbody>
+                    </table>
+                  
+                    <H1 style="text-align:center">SHEEP AND GOAT</H1>              
+                    <table id="tableID" class="display dataTable no-footer" style="grid-auto-columns: auto;" role="grid" aria-describedby="tableID_info">
+                
+                      <thead>
+                        <tr role="row">
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Profile  : activate to sort column descending" style="width: 40.7188px; ">Live Weight</th>
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Id No : activate to sort column ascending" style="width: 48.8906px;">Price (ksh)</th>
                         </tr>
-                        <tr>
-                       
-                        <td> 'empty set'</td>
-                        <td>'empty set'</td>
-                       </tr>
-                       <?php
-
-                      }
-                      ?>
-                    </tbody>
-                </table>
-                <table class="market-price">
-
-                    <thead>
-                        <tr>
-                            <td colspan="4"><H1>sheep / Goat</H1></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                            <td>live weight</td>
-                            <td>price(ksh)</td>
-                           
-                        </tr>
-                    <?php
-                      if(mysqli_num_rows($query_illibilis2) > 0){
-                      ?>
+                      </thead>
+                      <tbody>                                      
                       <?php
-                        while($data = mysqli_fetch_assoc($query_illibilis2)){    
-                      ?>
+                        if(mysqli_num_rows($query_illibilis2) > 0){
+                        ?>
+                        <?php
+                          while($data = mysqli_fetch_assoc($query_illibilis2)){    
+                        ?>
+                          <tr class="row">
                         
-                        <tr>
-                       
-                            <td> <?php  echo($data['weight']); ?> </td>
-                            <td><?php  echo($data['price']); ?></td>
+                              <td> <?php  echo($data['weight']); ?> </td>
+
+                              <?php
+                                
+                              ?>
+
+                              <td><?php  echo($data['price']); ?></td>
+                          </tr>
+                          <?php
+                          }
+
+                        }
+                        else  if(mysqli_num_rows($query_illibilis2) <= 0){
+                          ?>
+                          
+                          <tr>
+                        
+                          <td> 'empty set'</td>
+                          <td>'empty set'</td>
                         </tr>
                         <?php
+
                         }
-
-                      }
-                      else  if(mysqli_num_rows($query_illibilis2) <= 0){
                         ?>
-                        <tr>
-                            <td>live weight</td>
-                            <td>price(ksh)</td>
-                           
-                        </tr>
-                        <tr>
-                       
-                        <td> 'empty set'</td>
-                        <td>'empty set'</td>
-                       </tr>
-                       <?php
+                      </tbody>
+                    </table>
 
-                      }
-                      ?>
-                    </tbody>
-                </table>
             <div id="curve_chart" style="width: 900px; height: 500px"></div>
             <!--Emali market-->
                 <h1 class="title">Emali Market</h1>
@@ -309,99 +293,86 @@ $query_illibilis2 = mysqli_query($conn,"SELECT * FROM questionnaire where  marke
                     </div>
                     </div>
 
-                    <table class="market-price">
-<thead>
-    <tr>
-                                <td colspan="2"><h1>CATTLE</h1></td>
-                                <td colspan="2"><H1>SHEEP&GOAT</H1></td>
-    </tr>
-</thead>
-<tbody>
-<tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-<?php
-  if(mysqli_num_rows($query_emali1) > 0){
-  ?>
-  <?php
-    while($data = mysqli_fetch_assoc($query_emali1)){    
-  ?>
-    
-    <tr>
-   
-        <td> <?php  echo($data['weight']); ?> </td>
-        <td><?php  echo($data['price']); ?></td>
-    </tr>
-    <?php
-    }
+                    <div id="tableID_wrapper" class="dataTables_wrapper no-footer">
+                    <div class="dataTables_length" id="tableID_length">        
+                 </div>                    
+                    <H1 style="text-align:center">CATTLE</H1>              
+                    <table id="tableID" class="display dataTable no-footer" style="grid-auto-columns: auto;" role="grid" aria-describedby="tableID_info">
+                
+                      <thead>
+                        <tr role="row">
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Profile  : activate to sort column descending" style="width: 40.7188px; ">Live Weight</th>
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Id No : activate to sort column ascending" style="width: 48.8906px;">Price (ksh)</th>
+                        </tr>
+                      </thead>
+                      <tbody>                                      
+                      <?php
+                        if(mysqli_num_rows($query_emali1) > 0){
+                        ?>
+                        <?php
+                          while($data = mysqli_fetch_assoc($query_emali1)){    
+                        ?>
+                          <tr class="row">
+                        
+                              <td> <?php  echo($data['weight']); ?> </td>
+                              <td><?php  echo($data['price']); ?></td>
+                          </tr>
+                          <?php
+                          }
 
-  }
-  else  if(mysqli_num_rows($query_emali1) <= 0){
-    ?>
-    <tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-    <tr>
-   
-    <td> 'empty set'</td>
-    <td>'empty set'</td>
-   </tr>
-   <?php
+                        }
+                        else  if(mysqli_num_rows($query_emali1) <= 0){
+                          ?>
+                          <tr>                       
+                          <td> 'empty set'</td>
+                          <td>'empty set'</td>
+                        </tr>
+                        <?php
 
-  }
-  ?>
-</tbody>
-</table>
-<table class="market-price">
+                        }
+                        ?>
+                      </tbody>
+                    </table>
+                  
+                    <H1 style="text-align:center">SHEEP AND GOAT</H1>              
+                    <table id="tableID" class="display dataTable no-footer" style="grid-auto-columns: auto;" role="grid" aria-describedby="tableID_info">
+                
+                      <thead>
+                        <tr role="row">
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Profile  : activate to sort column descending" style="width: 40.7188px; ">Live Weight</th>
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Id No : activate to sort column ascending" style="width: 48.8906px;">Price (ksh)</th>
+                        </tr>
+                      </thead>
+                      <tbody>                                      
+                      <?php
+                        if(mysqli_num_rows($query_emali2) > 0){
+                        ?>
+                        <?php
+                          while($data = mysqli_fetch_assoc($query_emali2)){    
+                        ?>
+                          <tr class="row">
+                        
+                              <td> <?php  echo($data['weight']); ?> </td>
+                              <td><?php  echo($data['price']); ?></td>
+                          </tr>
+                          <?php
+                          }
 
-<thead>
-    <tr>
-        <td colspan="4"><H1>sheep / Goat</H1></td>
-    </tr>
-</thead>
-<tbody>
-<tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-    </tr>
-<?php
-  if(mysqli_num_rows($query_emali2) > 0){
-  ?>
-  <?php
-    while($data = mysqli_fetch_assoc($query_emali2)){    
-  ?>
-    
-    <tr>
-   
-        <td> <?php  echo($data['weight']); ?> </td>
-        <td><?php  echo($data['price']); ?></td>
-    </tr>
-    <?php
-    }
+                        }
+                        else  if(mysqli_num_rows($query_emali2) <= 0){
+                          ?>
+                          
+                          <tr>
+                        
+                          <td> 'empty set'</td>
+                          <td>'empty set'</td>
+                        </tr>
+                        <?php
 
-  }
-  else  if(mysqli_num_rows($query_emali2) <= 0){
-    ?>
-    <tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-    <tr>
-   
-    <td> 'empty set'</td>
-    <td>'empty set'</td>
-   </tr>
-   <?php
-
-  }
-  ?>
-</tbody>
-</table>
+                        }
+                        ?>
+                      </tbody>
+                    </table>
                     <div id="curve_chart2" style="width: 900px; height: 500px"></div>
                     <!--sultan hamud market-->
                     <h1 class="title">Sultan Hamud Market</h1>
@@ -436,98 +407,87 @@ $query_illibilis2 = mysqli_query($conn,"SELECT * FROM questionnaire where  marke
                          </div>
                         
                         
-                        <table class="market-price">
-<thead>
-    <tr>
-                                    <td colspan="2"><h1>CATTLE</h1></td>
-                                    <td colspan="2"><H1>SHEEP&GOAT</H1></td>
-    </tr>
-</thead>
-<tbody>
-<tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-    </tr>
-<?php
-  if(mysqli_num_rows($query_sulatan1) > 0){
-  ?>
-  <?php
-    while($data = mysqli_fetch_assoc($query_sulatan1)){    
-  ?>
-    
-    <tr>
-   
-        <td> <?php  echo($data['weight']); ?> </td>
-        <td><?php  echo($data['price']); ?></td>
-    </tr>
-    <?php
-    }
+                         <div id="tableID_wrapper" class="dataTables_wrapper no-footer">
+                    <div class="dataTables_length" id="tableID_length">        
+                 </div>                    
+                    <H1 style="text-align:center">CATTLE</H1>              
+                    <table id="tableID" class="display dataTable no-footer" style="grid-auto-columns: auto;" role="grid" aria-describedby="tableID_info">
+                
+                      <thead>
+                        <tr role="row">
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Profile  : activate to sort column descending" style="width: 40.7188px; ">Live Weight</th>
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Id No : activate to sort column ascending" style="width: 48.8906px;">Price (ksh)</th>
+                        </tr>
+                      </thead>
+                      <tbody>                                      
+                      <?php
+                        if(mysqli_num_rows($query_sulatan1) > 0){
+                        ?>
+                        <?php
+                          while($data = mysqli_fetch_assoc($query_sulatan1)){    
+                        ?>
+                          <tr class="row">
+                        
+                              <td> <?php  echo($data['weight']); ?> </td>
+                              <td><?php  echo($data['price']); ?></td>
+                          </tr>
+                          <?php
+                          }
 
-  }
-  else  if(mysqli_num_rows($query_sulatan1) <= 0){
-    ?>
-    <tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-    <tr>
-   
-    <td> 'empty set'</td>
-    <td>'empty set'</td>
-   </tr>
-   <?php
+                        }
+                        else  if(mysqli_num_rows($query_sulatan1) <= 0){
+                          ?>
+                          <tr>                       
+                          <td> 'empty set'</td>
+                          <td>'empty set'</td>
+                        </tr>
+                        <?php
 
-  }
-  ?>
-</tbody>
-</table>
-<table class="market-price">
+                        }
+                        ?>
+                      </tbody>
+                    </table>
+                  
+                    <H1 style="text-align:center">SHEEP AND GOAT</H1>              
+                    <table id="tableID" class="display dataTable no-footer" style="grid-auto-columns: auto;" role="grid" aria-describedby="tableID_info">
+                
+                      <thead>
+                        <tr role="row">
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Profile  : activate to sort column descending" style="width: 40.7188px; ">Live Weight</th>
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Id No : activate to sort column ascending" style="width: 48.8906px;">Price (ksh)</th>
+                        </tr>
+                      </thead>
+                      <tbody>                                      
+                      <?php
+                        if(mysqli_num_rows($query_sulatan2) > 0){
+                        ?>
+                        <?php
+                          while($data = mysqli_fetch_assoc($query_sulatan2)){    
+                        ?>
+                          <tr class="row">
+                        
+                              <td> <?php  echo($data['weight']); ?> </td>
+                              <td><?php  echo($data['price']); ?></td>
+                          </tr>
+                          <?php
+                          }
 
-<thead>
-    <tr>
-        <td colspan="4"><H1>sheep / Goat</H1></td>
-    </tr>
-</thead>
-<tbody>
-<tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-    </tr>
-<?php
-  if(mysqli_num_rows($query_sulatan2) > 0){
-  ?>
-  <?php
-    while($data = mysqli_fetch_assoc($query_sulatan2)){    
-  ?>
-    
-    <tr>
-   
-        <td> <?php  echo($data['weight']); ?> </td>
-        <td><?php  echo($data['price']); ?></td>
-    </tr>
-    <?php
-    }
+                        }
+                        else  if(mysqli_num_rows($query_sulatan2) <= 0){
+                          ?>
+                          
+                          <tr>
+                        
+                          <td> 'empty set'</td>
+                          <td>'empty set'</td>
+                        </tr>
+                        <?php
 
-  }
-  else  if(mysqli_num_rows($query_sulatan2) <= 0){
-    ?>
-    <tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-    <tr>
-   
-    <td> 'empty set'</td>
-    <td>'empty set'</td>
-   </tr>
-   <?php
+                        }
+                        ?>
+                      </tbody>
+                    </table>
 
-  }
-  ?>
-</tbody>
-</table>
                         <div id="curve_chart3" style="width: 900px; height: 500px"></div>
                         <!--Ewuaso Kedong Livestock Market-->
                             <h1 class="title">Ewuaso Kedong Livestock Market</h1>
@@ -569,99 +529,87 @@ $query_illibilis2 = mysqli_query($conn,"SELECT * FROM questionnaire where  marke
                             <!-- <img src="./images/image.jpg">
                             <img src="./images/FB_IMG_1663161101546.jpg">
                             <p>This market is located near Ewuaso Kedong shopping center. </p> -->
-                            <table class="market-price">
-<thead>
-    <tr>
-                                        <td colspan="2"><h1>CATTLE</h1></td>
-                                        <td colspan="2"><H1>SHEEP&GOAT</H1></td>
-    </tr>
-</thead>
-<tbody>
-<?php
-  if(mysqli_num_rows($query_kedong1) > 0){
-  ?>
-  <?php
-    while($data = mysqli_fetch_assoc($query_kedong1)){    
-  ?>
-    <tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-    <tr>
-   
-        <td> <?php  echo($data['weight']); ?> </td>
-        <td><?php  echo($data['price']); ?></td>
-    </tr>
-    <?php
-    }
+                            <div id="tableID_wrapper" class="dataTables_wrapper no-footer">
+                    <div class="dataTables_length" id="tableID_length">        
+                 </div>                    
+                    <H1 style="text-align:center">CATTLE</H1>              
+                    <table id="tableID" class="display dataTable no-footer" style="grid-auto-columns: auto;" role="grid" aria-describedby="tableID_info">
+                
+                      <thead>
+                        <tr role="row">
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Profile  : activate to sort column descending" style="width: 40.7188px; ">Live Weight</th>
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Id No : activate to sort column ascending" style="width: 48.8906px;">Price (ksh)</th>
+                        </tr>
+                      </thead>
+                      <tbody>                                      
+                      <?php
+                        if(mysqli_num_rows($query_kedong1) > 0){
+                        ?>
+                        <?php
+                          while($data = mysqli_fetch_assoc($query_kedong1)){    
+                        ?>
+                          <tr class="row">
+                        
+                              <td> <?php  echo($data['weight']); ?> </td>
+                              <td><?php  echo($data['price']); ?></td>
+                          </tr>
+                          <?php
+                          }
 
-  }
-  else  if(mysqli_num_rows($query_kedong1) <= 0){
-    ?>
-    <tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-    <tr>
-   
-    <td> 'empty set'</td>
-    <td>'empty set'</td>
-   </tr>
-   <?php
+                        }
+                        else  if(mysqli_num_rows($query_kedong1) <= 0){
+                          ?>
+                          <tr>                       
+                          <td> 'empty set'</td>
+                          <td>'empty set'</td>
+                        </tr>
+                        <?php
 
-  }
-  ?>
-</tbody>
-</table>
-<table class="market-price">
+                        }
+                        ?>
+                      </tbody>
+                    </table>
+                  
+                    <H1 style="text-align:center">SHEEP AND GOAT</H1>              
+                    <table id="tableID" class="display dataTable no-footer" style="grid-auto-columns: auto;" role="grid" aria-describedby="tableID_info">
+                
+                      <thead>
+                        <tr role="row">
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Profile  : activate to sort column descending" style="width: 40.7188px; ">Live Weight</th>
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Id No : activate to sort column ascending" style="width: 48.8906px;">Price (ksh)</th>
+                        </tr>
+                      </thead>
+                      <tbody>                                      
+                      <?php
+                        if(mysqli_num_rows($query_kedong2) > 0){
+                        ?>
+                        <?php
+                          while($data = mysqli_fetch_assoc($query_kedong2)){    
+                        ?>
+                          <tr class="row">
+                        
+                              <td> <?php  echo($data['weight']); ?> </td>
+                              <td><?php  echo($data['price']); ?></td>
+                          </tr>
+                          <?php
+                          }
 
-<thead>
-    <tr>
-        <td colspan="4"><H1>sheep / Goat</H1></td>
-    </tr>
-</thead>
-<tbody>
-<tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-<?php
-  if(mysqli_num_rows($query_kedong2) > 0){
-  ?>
-  <?php
-    while($data = mysqli_fetch_assoc($query_kedong2)){    
-  ?>
-    
-    <tr>
-   
-        <td> <?php  echo($data['weight']); ?> </td>
-        <td><?php  echo($data['price']); ?></td>
-    </tr>
-    <?php
-    }
+                        }
+                        else  if(mysqli_num_rows($query_kedong2) <= 0){
+                          ?>
+                          
+                          <tr>
+                        
+                          <td> 'empty set'</td>
+                          <td>'empty set'</td>
+                        </tr>
+                        <?php
 
-  }
-  else  if(mysqli_num_rows($query_kedong2) <= 0){
-    ?>
-    <tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-    <tr>
-   
-    <td> 'empty set'</td>
-    <td>'empty set'</td>
-   </tr>
-   <?php
+                        }
+                        ?>
+                      </tbody>
+                    </table>
 
-  }
-  ?>
-</tbody>
-</table>
                             <div id="curve_chart4" style="width: 900px; height: 500px"></div>
                     <!--kimana market-->
                     <h1 class="title" >Kimana Market</h1>
@@ -669,12 +617,10 @@ $query_illibilis2 = mysqli_query($conn,"SELECT * FROM questionnaire where  marke
                     <div class="textimage1">
                     <div class="toptext1">
                         <p>
-                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo sunt magnam 
-                          consectetur ea fugiat beatae harum eius reprehenderit aliquam, 
-                          corrupti itaque, expedita quisquam at quibusdam minima numquam nemo doloribus voluptatibus.
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium unde similique tenetur 
-                        dolor recusandae enim quasi
-                         autem quibusdam eum. Culpa voluptas nemo deserunt dolorum vitae natus nisi, fugiat eius non.
+                        traders selling their livestock in Kimana livestock market,kajiado county.Hundreds of Maasai people gather 
+                        at Kimana town every Tuesday,forming one of the largest Maasai livestock markets in Kenya. Maasai people mainly live in
+                         southern Kenya and northern Tanzania. As a nomadic ethnic group in eastern Africa,
+                         Maasai people rely on livestock breeding as their main source of livelihood
                         </p>
                           </div>
                           <div class="founderimage1">
@@ -700,108 +646,105 @@ $query_illibilis2 = mysqli_query($conn,"SELECT * FROM questionnaire where  marke
                     <!-- <img src="./images/img5.jpg"> -->
                     <!-- <p>traders selling their livestock in Kimana livestock market,kajiado county.Hundreds of Maasai people gather at Kimana town every Tuesday,forming one of the largest Maasai livestock markets in Kenya. Maasai people mainly live in southern Kenya and northern Tanzania. As a nomadic ethnic group in eastern Africa,
                         Maasai people rely on livestock breeding as their main source of livelihood.</p> -->
-                        <table class="market-price">
-<thead>
-    <tr>
-                                    <td colspan="2"><h1>CATTLE</h1></td>
-                                    <td colspan="2"><H1>SHEEP&GOAT</H1></td>
-    </tr>
-</thead>
-<tbody>
-<tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-<?php
-  if(mysqli_num_rows($query_kimana1) > 0){
-  ?>
-  <?php
-    while($data = mysqli_fetch_assoc($query_kimana1)){    
-  ?>
-    
-    <tr>
-   
-        <td> <?php  echo($data['weight']); ?> </td>
-        <td><?php  echo($data['price']); ?></td>
-    </tr>
-    <?php
-    }
+              <div id="tableID_wrapper" class="dataTables_wrapper no-footer">
+                    <div class="dataTables_length" id="tableID_length">        
+                 </div>                    
+                    <H1 style="text-align:center">CATTLE</H1>              
+                    <table id="tableID" class="display dataTable no-footer" style="grid-auto-columns: auto;" role="grid" aria-describedby="tableID_info">
+                
+                      <thead>
+                        <tr role="row">
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Profile  : activate to sort column descending" style="width: 40.7188px; ">Live Weight</th>
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Id No : activate to sort column ascending" style="width: 48.8906px;">Price (ksh)</th>
+                        </tr>
+                      </thead>
+                      <tbody>                                      
+                      <?php
+                        if(mysqli_num_rows($query_kimana1) > 0){
+                        ?>
+                        <?php
+                          while($data = mysqli_fetch_assoc($query_kimana1)){    
+                        ?>
+                          <tr class="row">
+                        
+                              <td> <?php  echo($data['weight']); ?> </td>
+                              <td><?php  echo($data['price']); ?></td>
+                          </tr>
+                          <?php
+                          }
 
-  }
-  else  if(mysqli_num_rows($query_kimana1) <= 0){
-    ?>
-    <tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-    <tr>
-   
-    <td> 'empty set'</td>
-    <td>'empty set'</td>
-   </tr>
-   <?php
+                        }
+                        else  if(mysqli_num_rows($query_kimana1) <= 0){
+                          ?>
+                          <tr>                       
+                          <td> 'empty set'</td>
+                          <td>'empty set'</td>
+                        </tr>
+                        <?php
 
-  }
-  ?>
-</tbody>
-</table>
-<table class="market-price">
+                        }
+                        ?>
+                      </tbody>
+                    </table>
+                  
+                    <H1 style="text-align:center">SHEEP AND GOAT</H1>              
+                    <table id="tableID" class="display dataTable no-footer" style="grid-auto-columns: auto;" role="grid" aria-describedby="tableID_info">
+                
+                      <thead>
+                        <tr role="row">
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Profile  : activate to sort column descending" style="width: 40.7188px; ">Live Weight</th>
+                          <th  tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Id No : activate to sort column ascending" style="width: 48.8906px;">Price (ksh)</th>
+                        </tr>
+                      </thead>
+                      <tbody>                                      
+                      <?php
+                        if(mysqli_num_rows($query_kimana2) > 0){
+                        ?>
+                        <?php
+                          while($data = mysqli_fetch_assoc($query_kimana2)){    
+                        ?>
+                          <tr class="row">
+                        
+                              <td> <?php  echo($data['weight']); ?> </td>
+                              <td><?php  echo($data['price']); ?></td>
+                          </tr>
+                          <?php
+                          }
 
-<thead>
-    <tr>
-        <td colspan="4"><H1>sheep / Goat</H1></td>
-    </tr>
-</thead>
-<tbody>
-<?php
-  if(mysqli_num_rows($query_kimana2) > 0){
-  ?>
-  <?php
-    while($data = mysqli_fetch_assoc($query_kimana2)){    
-  ?>
-    <tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-    <tr>
-   
-        <td> <?php  echo($data['weight']); ?> </td>
-        <td><?php  echo($data['price']); ?></td>
-    </tr>
-    <?php
-    }
+                        }
+                        else  if(mysqli_num_rows($query_kimana2) <= 0){
+                          ?>
+                          
+                          <tr>
+                        
+                          <td> 'empty set'</td>
+                          <td>'empty set'</td>
+                        </tr>
+                        <?php
 
-  }
-  else  if(mysqli_num_rows($query_kimana2) <= 0){
-    ?>
-    <tr>
-        <td>live weight</td>
-        <td>price(ksh)</td>
-       
-    </tr>
-    <tr>
-   
-    <td> 'empty set'</td>
-    <td>'empty set'</td>
-   </tr>
-   <?php
+                        }
+                        ?>
+                      </tbody>
+                    </table>
 
-  }
-  ?>
-</tbody>
-</table>
                         <div id="curve_chart5" style="width: 900px; height: 500px"></div>
                     <h2 class="furtherresearch">Further Research <hr> </h2>
                         <div class="research">
-                        <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed laudantium doloribus labore, 
-                          omnis deleniti, ad ipsum  
-                        similique minus enim, animi ut <a href="https://www.kalro.org/">Kenya Agricultural and Livestock Research Organization</a>sit quaerat sequi assumenda sint dolorem debitis? Velit, eius?Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia libero laboriosam expedita natus ipsa architecto consectetur nobis quod voluptatem deserunt, 
-                        quasi perspiciatis laborum asperiores? Deleniti animi dicta eius veritatis 
-                        exercitationem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore amet doloribus provident odio magnam dolor obcaecati soluta accusamus assumenda qui. 
-                        Blanditiis maxime hic reiciendis, dignissimos earum sunt ratione quasi quo.
+                        <p> <h3>Drough/climate change</h3>
+                        climate change has signifivantly affected global agriculture in the 21st century.A <h4 style="color: deepskyblue;">2007 assessment report by intergovernmental panel on climate change (IPCC)</h4>
+                        indicate that most countries will experience an increase in average temperature, more frequent heat waves,more stressed water 
+                        resources , desertification ,and periods of heavy precipitation.Farmers in Kenya face a variety of challenges from pests to drought
+                         The changing climate has led to erratic weather that offten catches farmers unaware, and has become a major concern as the situation
+                         is likely to worsen in the future. Kenya has,in the recent past, experienced severe drought that has left kenyans vulnerable because 
+                         of the countrys high dependency on natural resource and its low capacity to adapt and <h4 style="color: deepskyblue;">cope with climate-related impacts.</h4>
+                         <h4>Factors affecting yield</h4>
+                         Due to the factors noted above ,it is not surprising that this study found climate change and drought are among the biggest factors 
+                         affecting yield Fifty percent of the farmers we surveyed said that climate change had affected their yield in the past season ,and 17% said that 
+                         drought had affected yield .Climate was also listed as one of the key challenges farmers face overall, with 27% identifying the as a challenge they face 
+                         <br><h4>source: shamba shape up<h4> 
+                          <br>
+                        <a href="https://www.kalro.org/">Kenya Agricultural and Livestock Research Organization</a>
+                        <br>
                          <a href="https://meteo.go.ke/">Kenya Meteorological Department</a>
                                           </p>
                         </div>

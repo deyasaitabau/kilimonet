@@ -14,10 +14,10 @@
     <article class="topnav" id="myTopnav">
     <article class="logo">
         <img class="Mylogo" src="../images/jpg.webp">
-  <a href="#" class="active">Home</a> 
-  <a href="./home/resource.php">Resource</a>
-  <a href="./home/blog.php">Blog</a>
-  <a href="./users/survey.php">Survey</a>
+  <a href="../" class="active">Home</a> 
+  <a href="../home/resource.php">Resource</a>
+  <a href="../home/blog.php">Blog</a>
+  <a href="#">Survey</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
