@@ -34,7 +34,6 @@
 <br>
 <label for="mobile">Mobile Number</label>
 <input type="text" name="mobile" required placeholder=" Enter Phone Number" class="label">
- 
 <label for="market" >Market  </label>
 <select name="market" id="market" class="label">
     <option value="emali">Ewuaso Kedong</option>
@@ -53,10 +52,10 @@ Sheep/ Goat
 <br>
 <label for="weight">Weight</label>
 <select  name="weight" required placeholder=" enter weight">
-  <option value="1-10kg">Upto 10kg </option>
-  <option value="11-20kg">11 to 20kg </option>
-  <option value="21-30kg">21 to 30kg </option>
-  <option value="31-40kg">31 to 40kg </option>
+  <option value="1-10kg">Upto 10 </option>
+  <option value="11-20kg">11 to 20 </option>
+  <option value="21-30kg">21 to 30 </option>
+  <option value="31-40kg">31 to 40 </option>
   <option value="41-50">41 to 50 </option>
   <option value="51-60">51 to 60 </option>
   <option value="61-70">61 to 70 </option>

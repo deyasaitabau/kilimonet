@@ -221,7 +221,7 @@ $query_illibilis2 = mysqli_query($conn,"SELECT * FROM questionnaire where  marke
                         }
                         else  if(mysqli_num_rows($query_illibilis1) <= 0){
                           ?>
-                          <tr>                       
+                          <tr class="tableRow">                       
                           <td> 'empty set'</td>
                           <td>'empty set'</td>
                         </tr>
@@ -731,12 +731,12 @@ $query_illibilis2 = mysqli_query($conn,"SELECT * FROM questionnaire where  marke
                     <h2 class="furtherresearch">Further Research <hr> </h2>
                         <div class="research">
                         <p> <h3>Drough/climate change</h3>
-                        climate change has signifivantly affected global agriculture in the 21st century.A <h4 style="color: deepskyblue;">2007 assessment report by intergovernmental panel on climate change (IPCC)</h4>
+                        climate change has signifivantly affected global agriculture in the 21st century.A2007 assessment report by intergovernmental panel on climate change (IPCC)
                         indicate that most countries will experience an increase in average temperature, more frequent heat waves,more stressed water 
                         resources , desertification ,and periods of heavy precipitation.Farmers in Kenya face a variety of challenges from pests to drought
                          The changing climate has led to erratic weather that offten catches farmers unaware, and has become a major concern as the situation
                          is likely to worsen in the future. Kenya has,in the recent past, experienced severe drought that has left kenyans vulnerable because 
-                         of the countrys high dependency on natural resource and its low capacity to adapt and <h4 style="color: deepskyblue;">cope with climate-related impacts.</h4>
+                         of the countrys high dependency on natural resource and its low capacity to adapt and cope with climate-related impacts.
                          <h4>Factors affecting yield</h4>
                          Due to the factors noted above ,it is not surprising that this study found climate change and drought are among the biggest factors 
                          affecting yield Fifty percent of the farmers we surveyed said that climate change had affected their yield in the past season ,and 17% said that 
@@ -763,7 +763,7 @@ $query_illibilis2 = mysqli_query($conn,"SELECT * FROM questionnaire where  marke
                         <article class="last-container">
                         <div class="footer">
                         <div class="social-buttons">
-  <a href="#" class="social-button social-button--facebook" aria-label="Facebook" >
+  <a href="https://www.facebook.com/profile.php?id=100072257630546&mibextid=ZbWKwL" class="social-button social-button--facebook" aria-label="Facebook" >
     <i id="icon"id="icon" class="fab fa-facebook-f" ></i>
   </a>
   <a href="#" class="social-button social-button--linkedin" aria-label="LinkedIn" >
