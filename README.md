@@ -3,15 +3,14 @@
 
 ## WHAT IS KILIMONET?
 
-
+Kilimonet is a program I am working on to provide a tangible solution to many challenges faced by livestock keepers and livestock dealers in Kenya today, particularly in Kajiado County, potent to them by climate change. Today, livestock keepers and dealers face the challenge of unreliable rainfall, leading to drought. Consequently, farmers have had to sell their livestock at low prices. This is not because their animals’ health and fitness are very poor but because no local livestock dealer is willing to buy because there are no feeds to feed livestock in the future. Kilimonet wants to solve the challenge in the following way:Availing the most responsive livestock prices from all accredited livestock markets in Kajiado County to all livestock dealers in Kenya. By doing this, large numbers of livestock dealers from regions with sufficient animal feeds will be attracted to trade in such markets due to low prices. This spiral effect leads to an increase in demand, which leads to a rise in prices
 ### HOW DOES KILIMONET PROGRAM WORK?
 Kilimonet is a straightforward digital information platform to use.It avails livestock prices from different accredited yards in tabular format. 
 Kilimonet prices livestock based on two key variables, specie and weight. Kilimonet offers prices for three key specie; cattle, sheep and goats.
 Several factors affect livestock prices. These factors include breed, age, gender, weight,skin colour and many other. Kilimonet uses weight variable to 
 compute livestock prices because weight cut across all the above factors. Kilimonet prices are very responsive because prices displayed in the table are 
 updated continuously.KIlimonet also gives overall market performance through graph analysis Apart from market price, Kilimonet also provide the following additional services:
-1. Meteorological and climatic information
-2. Best livestock rearing practices such as haymaking, silage making and many more.
+1. Best livestock rearing practices such as haymaking, silage making and many more.
 
 
 #### WHAT MAKES KILIMONET BEST THAN OTHER PLATFORMS THAT PROVIDE MARKET INFORMATION?
